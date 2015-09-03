@@ -1,7 +1,7 @@
 # meteor-budget
 A Meteor.js expense tracking and budget management. Started as a simple project to get familiar with this awesome JavaScript platform.
 
-Demo page:
+Demo: [mbudget.meteor.com](http://mbudget.meteor.com/)
 
 # todo
 * Finish this readme.
