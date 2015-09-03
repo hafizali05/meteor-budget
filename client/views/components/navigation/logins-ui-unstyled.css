@@ -1,0 +1,29 @@
+
+/**
+ * Custom accounts-ui-unstyled styling.
+ *
+ * @author: Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
+
+
+#login-buttons {
+    line-height: 35px;
+    padding: 15px;
+}
+
+#login-buttons a {
+    cursor: pointer;
+}
+
+#login-buttons a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-buttons-dropdown-align-right {
+    text-align: right;
+}
+
+.login-buttons-dropdown-align-left {
+    text-align: left;
+}

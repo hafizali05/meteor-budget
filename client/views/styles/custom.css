@@ -1,0 +1,31 @@
+/**
+ * Custom CSS code goes here.
+ * Stuffs like... Skeleton edits, for instance.
+ *
+ * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
+
+
+
+body, html {
+    height: 100%;
+    min-width: 100%;
+}
+
+#main-container {
+    border-right: #E1E1E1 1px solid;
+    border-left: #E1E1E1 1px solid;
+    height: 100%;
+    padding: 100px 25px 60px 25px !important;
+}
+
+input[type="number"] {
+    text-align: right;
+    width: 100%;
+}
+
+.right-select,
+input[type="date"]
+{
+    text-align: right;
+}

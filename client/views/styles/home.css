@@ -1,0 +1,16 @@
+
+/**
+ * Style for "home" view.
+ *
+ * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
+
+
+div.loginAlert {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 25%;
+    height: 100%;
+    text-align: center;
+}

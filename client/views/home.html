@@ -1,0 +1,88 @@
+
+<template name="Home">
+    <div class="column">
+
+        {{#if currentUser}}
+
+        <h6>Add new transaction:</h6>
+        <form class="submit-transaction">
+            <div class="row">
+                <div class="ten columns">
+                    <input name="description" class="u-full-width" type="text" placeholder="Description" required="required" tabindex="1" />
+                </div>
+                <div class="two columns">
+                    <button type="submit" class="button-primary" tabindex="10">Insert</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="three columns">
+                    <input name="date" class="u-full-width" type="date" placeholder="Date" required="required" tabindex="2" />
+                </div>
+                <div class="three columns">
+                    <input name="category" class="u-full-width" type="text" placeholder="Category" required="required" tabindex="3" />
+                </div>
+                <div class="two columns">
+                    <select name="type" class="u-full-width right-select" tabindex="4">
+                        <option value="Income">Income</option>
+                        <option value="Outcome" selected>Outcome</option>
+                    </select>
+                </div>
+                <div class="u-max-full-width two columns">
+                    <input name="amount" type="number" placeholder="0.00" step="0.25" min="0.00" required="required" tabindex="5" />
+                </div>
+            </div>
+        </form>
+
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#each transactions}}
+                    {{> transaction}}
+                {{/each}}
+
+            </tbody>
+        </table>
+
+        {{else}}
+
+            <div class="loginAlert">
+                I think you should have to log-in first...
+            </div>
+
+        {{/if}}
+
+    </div>
+</template>
+
+<template name="transaction">
+    <tr>
+        <td>
+            {{description}}
+        </td>
+        <td>
+            {{date}}
+        </td>
+        <td>
+            {{category}}
+        </td>
+        <td>
+            {{amount}}
+        </td>
+    </tr>
+</template>

@@ -1,0 +1,33 @@
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Finance Manager</title>
+    <meta name="description" content="">
+    <meta name="author" content="Daniele Gazzelloni, http://www.danielegazzelloni.com/">
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v1" sizes="16x16 32x32 64x64">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+</body>
+
+<template name="Main">
+    <!-- Navigation Bar
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {{> navigation}}
+
+    <!-- iron:routing should insert my views here...
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container" id="main-container">
+        <article class="row">
+            {{> yield}}
+        </article>
+    </div>
+</template>

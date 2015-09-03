@@ -1,0 +1,48 @@
+
+/* Navigation Bar
+/*
+/* @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.navbar-container {
+    width: 100%;
+    border: solid 1px #E1E1E1;
+    border-top: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+    background-color: #FFFFFF;
+    height: 65px;
+}
+
+.navbar {
+    max-width: 960px;
+    height: 30px;
+    margin: 15px auto;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.navbar .entry {
+    float: left;
+    line-height: 35px;
+    margin-right: 2em;
+}
+
+.navbar .entry a {
+    color: #000000;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-size: 2.0rem;
+    line-height: 1.2;
+    letter-spacing: -.1rem;
+}
+
+.navbar .entry a:hover {
+    color: #0FA0CE;
+}

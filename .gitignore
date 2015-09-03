@@ -1,0 +1,8 @@
+# Meteor local stuffs
+.meteor/local
+
+# Avoid pushing WebStorm configuration
+.idea
+
+# Apple .DS_Store
+**/.DS_Store
