@@ -7,10 +7,10 @@
             <form class="submit-transaction">
                 <div class="row">
                     <div class="ten columns">
-                        <input name="description" class="u-full-width" type="text" placeholder="Description" required="required" tabindex="1" />
+                        <input name="description" class="u-full-width" type="text" placeholder="E.g. Dinner with Annie; Ice creams for Ben and Josh; Gym monthly fee; ..." required="required" tabindex="1" />
                     </div>
                     <div class="two columns">
-                        <button type="submit" class="button-primary" tabindex="10">Add</button>
+                        <button class="u-full-width button-primary" type="submit" tabindex="10">Add</button>
                     </div>
                 </div>
                 <div class="row">
@@ -18,10 +18,10 @@
                         <input name="date" id="transactionDate" class="u-full-width" type="date" placeholder="Date" required="required" tabindex="2" />
                     </div>
                     <div class="three columns">
-                        <select name="category" class="u-full-width right-select" tabindex="3">
+                        <select class="u-full-width align-right" name="category" tabindex="3">
 
                             {{#each categories}}
-                                {{> category}}
+                                {{> optionCategory}}
                             {{/each}}
 
                         </select>
@@ -32,8 +32,11 @@
                             <option value="Outcome" selected>Outcome</option>
                         </select>
                     </div>
-                    <div class="u-max-full-width two columns">
-                        <input name="amount" type="number" placeholder="0.00" step="0.25" min="0.00" required="required" tabindex="5" />
+                    <div class="u-full-width two columns">
+                        <div class="button-group-addon-left">
+                            <span>€</span>
+                            <input name="amount" type="number" placeholder="0.00" step="0.25" min="0.00" required="required" tabindex="5" />
+                        </div>
                     </div>
                 </div>
             </form>
@@ -71,6 +74,7 @@
     </div>
 </template>
 
+
 <template name="transaction">
     <tr>
         <td>{{description}}</td>
@@ -80,6 +84,7 @@
     </tr>
 </template>
 
-<template name="category">
-    <option value="{{name}}"> {{name}} </option>
+
+<template name="optionCategory">
+    <option value="{{name}}" data-id="{{_id}}"> {{name}} </option>
 </template>
