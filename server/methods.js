@@ -9,8 +9,10 @@
 //----------------- Methods
 
 Meteor.methods({
+
     addTransaction: function (description, date, category, amount) {
-        // Make sure the user is logged in before inserting a task
+
+        // Make sure the user is logged in before inserting a transaction
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
         }
@@ -20,9 +22,25 @@ Meteor.methods({
             date: date,
             category: category,
             amount: amount,
-            owner: Meteor.userId(),
-            username: Meteor.user().email
+            owner: Meteor.userId()
         });
+
+    },
+
+
+    addCategory: function (name) {
+
+        // Make sure the user is logged in before inserting a category
+        if (!Meteor.userId()) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        Categories.insert({
+            name: name,
+            owner: Meteor.userId()
+        });
+
     }
+
 });
 

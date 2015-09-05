@@ -8,6 +8,9 @@
 
 //----------------- Subscriptions
 
+// Categories, filtered by user server-side
+Meteor.subscribe("categories");
+
 // Transactions, filtered by user server-side
 Meteor.subscribe("transactions");
 
@@ -19,10 +22,17 @@ Meteor.subscribe("transactions");
 //----------------- Helpers
 
 Template.Home.helpers({
+
     transactions: function () {
         // Show newest transactions at the top
         return Transactions.find({}, {sort: {date: -1}});
+    },
+
+    categories: function () {
+        // Show categories sorted alphabetically
+        return Categories.find({}, {sort: {name: 1}});
     }
+
 });
 
 
@@ -34,6 +44,7 @@ Template.Home.helpers({
 //----------------- Events
 
 Template.Home.events({
+
     "submit .submit-transaction": function (event) {
         // Prevent default browser form submit
         event.preventDefault();
@@ -53,4 +64,5 @@ Template.Home.events({
         event.target.category.value     = "";
         event.target.amount.value       = "";
     }
+
 });

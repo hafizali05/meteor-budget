@@ -14,3 +14,14 @@ Meteor.publish("transactions", function () {
     }
 
 });
+
+Meteor.publish("categories", function () {
+
+    // Publish categories only if user is logged in and only for that user.
+    if (this.userId) {
+        return Categories.find({
+            owner: this.userId
+        });
+    }
+
+});

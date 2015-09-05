@@ -1,0 +1,28 @@
+<template name="Categories">
+
+    <form class="insert-category">
+        <div class="row">
+            <div class="ten columns">
+                <input class="u-full-width" name="name" type="text" placeholder="Food, car fuel, bills..." />
+            </div>
+            <div class="two columns">
+                <button class="button-primary" type="submit">Insert</button>
+            </div>
+        </div>
+    </form>
+
+
+    <h6>Category list:</h6>
+
+    <ul>
+        {{#each categories}}
+            {{> category}}
+        {{/each}}
+    </ul>
+
+</template>
+
+
+<template name="category">
+    <li>{{name}}</li>
+</template>

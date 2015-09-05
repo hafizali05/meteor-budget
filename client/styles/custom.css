@@ -6,6 +6,7 @@
  */
 
 
+/* --------------------- PAGE STRUCTURE --------------------- */
 
 body, html {
     height: 100%;
@@ -19,13 +20,18 @@ body, html {
     padding: 100px 25px 60px 25px !important;
 }
 
+
+
+
+
+/* --------------------- FORMS --------------------- */
+
 input[type="number"] {
     text-align: right;
     width: 100%;
 }
 
 .right-select,
-input[type="date"]
-{
+input[type="date"] {
     text-align: right;
 }
