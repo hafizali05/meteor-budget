@@ -1,0 +1,16 @@
+
+/**
+ * Style for "categories" view.
+ *
+ * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
+
+
+
+
+/* --------------------- TABLE --------------------- */
+
+.categoriesTable th:last-child {
+    width: 10%;
+    text-align: center;
+}

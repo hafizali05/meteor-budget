@@ -14,6 +14,9 @@ Meteor.subscribe("categories");
 // Transactions, filtered by user server-side
 Meteor.subscribe("transactions");
 
+// Balance
+Meteor.subscribe("balance");
+
 
 
 
@@ -31,6 +34,13 @@ Template.Home.helpers({
     categories: function () {
         // Show categories sorted alphabetically
         return Categories.find({}, {sort: {name: 1}});
+    },
+
+    balance: function() {
+        // Return current balance
+        var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.value.toFixed(2);
+        var currency    = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.currency;
+        return currency + balance;
     }
 
 });
@@ -53,16 +63,24 @@ Template.Home.events({
         var description = event.target.description.value;
         var date        = event.target.date.value;
         var category    = event.target.category.value;
+        var type        = event.target.type.value;
         var amount      = event.target.amount.value;
 
         // Insert this transaction into the collection
         Meteor.call("addTransaction", description, date, category, amount);
 
+        // Also, modify user balance
+        Meteor.call("touchBalance", type, amount);
+
         // Clear form
         event.target.description.value  = "";
         event.target.date.value         = "";
-        event.target.category.value     = "";
         event.target.amount.value       = "";
+    },
+
+    "click .delete": function (event) {
+        // Popup a confirmation box before!
+        Meteor.call("deleteTransaction", this._id, this.type, this.amount);
     }
 
 });

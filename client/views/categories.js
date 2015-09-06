@@ -46,6 +46,11 @@ Template.Categories.events({
 
         // Clear form
         event.target.name.value = "";
+    },
+
+    "click .delete": function (event) {
+        // Popup a confirmation dialog if there are transactions using this category!
+        Meteor.call("deleteCategory", this._id);
     }
 
 });

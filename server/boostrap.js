@@ -7,10 +7,6 @@
 // Startup stuffs here.
 Meteor.startup(function (){
 
-    /*if (Transactions.find().count() === 0) {
-        console.log("No transactions found at startup!");
-    }*/
-
     /*if (Categories.find().count() === 0) {
         var categories = [
             {name: "Food"},

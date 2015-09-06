@@ -6,6 +6,32 @@
  */
 
 
+
+
+/* --------------------- GENERICS --------------------- */
+
+
 div.loginAlert {
     margin-top: 50px;
+}
+
+
+
+
+/* --------------------- TABLE --------------------- */
+
+
+table.transactionsHome th {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+table.transactionsHome th,
+table.transactionsHome td {
+    text-align: center;
+}
+
+table.transactionsHome th:first-child,
+table.transactionsHome td:first-child {
+    text-align: left;
 }

@@ -2,6 +2,9 @@
 <template name="Home">
     <div class="column">
 
+        <!-- New Transaction form
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
         {{#if currentUser}}
 
             <form class="submit-transaction">
@@ -41,13 +44,28 @@
                 </div>
             </form>
 
-            <table class="u-full-width">
+
+
+            <!-- Balance
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+            <div class="balance">
+                <h2>Balance: {{balance}}</h2>
+            </div>
+
+
+
+
+            <!-- Transactions table
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+            <table class="u-full-width transactionsHome">
                 <thead>
                     <tr>
                         <th>Description</th>
                         <th>Date</th>
-                        <th>Type</th>
+                        <th>Category</th>
                         <th>Amount</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +99,7 @@
         <td>{{date}}</td>
         <td>{{category}}</td>
         <td>{{amount}}</td>
+        <td><button class="delete">&times;</button></td>
     </tr>
 </template>
 

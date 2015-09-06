@@ -1,8 +1,12 @@
 
-/* Navigation Bar
-/*
-/* @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/**
+ * Style for "Navbar" componenet.
+ *
+ * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
+
+
 
 .navbar-container {
     width: 100%;

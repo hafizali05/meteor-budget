@@ -1,28 +1,45 @@
 <template name="Categories">
 
+    <!-- New Category form
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
     <form class="insert-category">
         <div class="row">
             <div class="ten columns">
                 <input class="u-full-width" name="name" type="text" placeholder="Food, Bills, Renting..." />
             </div>
             <div class="two columns">
-                <button class="button-primary" type="submit">Insert</button>
+                <button class="u-full-width button-primary" type="submit">Insert</button>
             </div>
         </div>
     </form>
 
 
-    <h6>Category list:</h6>
 
-    <ul>
-        {{#each categories}}
-            {{> category}}
-        {{/each}}
-    </ul>
+    <!-- Categories table
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <table class="u-full-width categoriesTable">
+        <thead>
+            <tr>
+                <th>Categories</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categories}}
+                {{> category}}
+            {{/each}}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
 
 </template>
 
 
 <template name="category">
-    <li>{{name}}</li>
+    <tr>
+        <td>{{name}}</td>
+        <td><button class="delete">&times;</button></td>
+    </tr>
 </template>
