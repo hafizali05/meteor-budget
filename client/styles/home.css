@@ -21,11 +21,6 @@ div.loginAlert {
 /* --------------------- TABLE --------------------- */
 
 
-table.transactionsHome th {
-    font-weight: bolder;
-    font-size: 18px;
-}
-
 table.transactionsHome th,
 table.transactionsHome td {
     text-align: center;

@@ -74,17 +74,25 @@ Meteor.methods({
     },
 
     // ------ Collection: Categories
-    addCategory: function (name) {
+    addCategory: function (name, callback) {
 
         // Make sure the user is logged in before inserting a category
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
         }
 
-        Categories.insert({
+        var cat = {
             name: name,
             owner: Meteor.userId()
-        });
+        };
+
+        if (Categories.find(cat).count() > 0) {
+
+            throw new Meteor.Error("Category already exists!");
+
+        }
+
+        Categories.insert(cat);
 
     },
 

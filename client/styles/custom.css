@@ -24,6 +24,20 @@ body, html {
 
 
 
+
+
+/* --------------------- TABLES --------------------- */
+
+
+th {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+
+
+
+
 /* --------------------- FORMS --------------------- */
 
 input[type="number"] {

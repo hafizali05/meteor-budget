@@ -42,7 +42,12 @@ Template.Categories.events({
         var name = event.target.name.value;
 
         // Insert this category into the collection
-        Meteor.call("addCategory", name);
+        Meteor.call("addCategory", name, function (error, results) {
+            if (error) {
+                console.log("This category already exists!");
+                // DO SOMETHING TO ALERT THE USER HERE
+            }
+        });
 
         // Clear form
         event.target.name.value = "";
