@@ -74,7 +74,7 @@ Meteor.methods({
     },
 
     // ------ Collection: Categories
-    addCategory: function (name, callback) {
+    addCategory: function (name) {
 
         // Make sure the user is logged in before inserting a category
         if (!Meteor.userId()) {

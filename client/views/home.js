@@ -67,7 +67,7 @@ Template.Home.events({
         var amount      = event.target.amount.value;
 
         // Insert this transaction into the collection
-        Meteor.call("addTransaction", description, date, category, amount);
+        Meteor.call("addTransaction", description, date, category, type, amount);
 
         // Also, modify user balance
         Meteor.call("touchBalance", type, amount);
