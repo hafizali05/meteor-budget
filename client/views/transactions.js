@@ -44,7 +44,8 @@ Template.Transactions.helpers({
         // Return current balance
         var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.value.toFixed(2);
         var currency    = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.currency;
-        return currency + balance;
+
+        return (balance < 0) ? ("-" + currency + Math.abs(parseFloat(balance)).toFixed(2)) : (currency + balance);
     }
 
 });
@@ -83,8 +84,60 @@ Template.Transactions.events({
     },
 
     "click .delete": function (event) {
-        // Popup a confirmation box before!
-        Meteor.call("deleteTransaction", this._id, this.type, this.amount);
+        var tds = event.target.parentNode.parentNode.children;
+
+        var tableHTML = "<table class=\"u-full-width transactionsHome transactionsDialog\">"
+        + "<thead>"
+        + "<tr>"
+        + "<th>Description</th>"
+        + "<th>Date</th>"
+        + "<th>Category</th>"
+        + "<th>Amount</th>"
+        + "</tr>"
+        + "</thead>"
+        + "<tbody>"
+        + "<tr>"
+        + tds[0].outerHTML
+        + tds[1].outerHTML
+        + tds[2].outerHTML
+        + tds[3].outerHTML
+        + "</tr>"
+        + "</tbody>"
+        + "</table>";
+
+        var id = this._id;
+        var type = this.type;
+        var amount = this.amount;
+
+        // Popup dialog (powered by alertify)
+        alertify.confirm(
+
+            // Popup title
+            "Are you sure you want to delete this transaction?",
+
+            // Popup message
+            tableHTML,
+
+            // On "YES!" callback
+            function(){
+                Meteor.call("deleteTransaction", id, type, amount, function () {
+                    alertify.message('Transaction deleted.');
+                });
+            },
+
+            // On "CANCEL" callback
+            function(){
+            }
+
+        )
+
+        // Options...
+        .set('reverseButtons', true)
+        .set('transition', 'fade')
+        .set('resizable', true)
+        .set('defaultFocus', 'ok')
+        .set('labels', { ok: 'YES'})
+        .resizeTo("75%", "40%");
     }
 
 });

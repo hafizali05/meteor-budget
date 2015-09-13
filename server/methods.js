@@ -51,7 +51,7 @@ Meteor.methods({
             _id: id
         });
 
-        Meteor.call("touchBalance", type, amount);
+        Meteor.call("touchBalance", (type === 'Income' ? 'Outcome' : 'Income'), amount);
 
     },
 

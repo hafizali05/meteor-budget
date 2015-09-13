@@ -30,3 +30,7 @@ table.transactionsHome th:first-child,
 table.transactionsHome td:first-child {
     text-align: left;
 }
+
+table.transactionsDialog {
+    vertical-align: middle;
+}

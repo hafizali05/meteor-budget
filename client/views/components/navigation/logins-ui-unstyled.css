@@ -20,6 +20,24 @@
     text-decoration: underline;
 }
 
+.accounts-dialog {
+    background: #FFFFFF;
+    border: solid 1px #D1D1D1;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0.8em 1.2em;
+}
+
+.login-button {
+    color: #0FA0CE;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    text-decoration: underline;
+}
+
 .login-buttons-dropdown-align-right {
     text-align: right;
 }

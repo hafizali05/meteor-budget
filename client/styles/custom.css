@@ -26,6 +26,18 @@ body, html {
 
 
 
+/* --------------------- ALERTIFYJS DIALOGS --------------------- */
+
+.ajs-dialog {
+    margin-top: 10% !important;
+}
+
+
+
+
+
+
+
 /* --------------------- TABLES --------------------- */
 
 
@@ -81,3 +93,4 @@ input[type="date"] {
     background-color: #ffffff;
     border: 0px;
 }
+
