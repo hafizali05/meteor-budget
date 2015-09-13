@@ -1,5 +1,5 @@
 /**
- * Meteor code for Home.
+ * Meteor code for Transactions.
  *
  * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
  */
@@ -24,7 +24,7 @@ Meteor.subscribe("balance");
 
 //----------------- Helpers
 
-Template.Home.helpers({
+Template.Transactions.helpers({
 
     transactions: function () {
         // Show newest transactions at the top
@@ -33,7 +33,11 @@ Template.Home.helpers({
 
     categories: function () {
         // Show categories sorted alphabetically
-        return Categories.find({}, {sort: {name: 1}});
+        return Categories.find({}, {
+            sort: {
+                name: 1
+            }
+        });
     },
 
     balance: function() {
@@ -53,7 +57,7 @@ Template.Home.helpers({
 
 //----------------- Events
 
-Template.Home.events({
+Template.Transactions.events({
 
     "submit .submit-transaction": function (event) {
         // Prevent default browser form submit

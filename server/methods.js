@@ -18,9 +18,17 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        var dateArr         = date.split("-");
+        var formattedDate   = new Date(dateArr[0], (parseInt(dateArr[1])-1), dateArr[2]);
+
+        if (typeof amount === "string") {
+            amount = parseFloat(amount);
+        }
+
+
         Transactions.insert({
             description: description,
-            date: date,
+            date: formattedDate,
             category: category,
             amount: amount,
             type: type,
@@ -63,10 +71,6 @@ Meteor.methods({
         } else {
             balance.value -= parseFloat(amount);
         }
-
-        console.log(type);
-        console.log(amount);
-        console.log(balance);
 
         // Update user balance
         Meteor.users.update( this.userId, { $set: {balance : balance} } );

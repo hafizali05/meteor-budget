@@ -7,7 +7,7 @@
 
 Template.Navigation.helpers({
     entries: [
-        { entry: "Home", link: "/" },
+        { entry: "Transactions", link: "/Transactions" },
         { entry: "Categories", link: "/categories" }
     ]
 });

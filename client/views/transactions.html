@@ -1,5 +1,5 @@
 
-<template name="Home">
+<template name="Transactions">
     <div class="column">
 
         <!-- New Transaction form
@@ -96,9 +96,9 @@
 <template name="transaction">
     <tr>
         <td>{{description}}</td>
-        <td>{{date}}</td>
+        <td>{{prettifyDate date}}</td>
         <td>{{category}}</td>
-        <td>{{amount}}</td>
+        <td>{{amount.toFixed 2}}</td>
         <td><button class="delete">&times;</button></td>
     </tr>
 </template>
