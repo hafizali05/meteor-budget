@@ -14,3 +14,13 @@
     width: 10%;
     text-align: center;
 }
+
+
+
+
+/* --------------------- DELETE CATEGORY POPUP --------------------- */
+
+.deleteCategory {
+    margin: 0.5em auto;
+    text-align: center;
+}

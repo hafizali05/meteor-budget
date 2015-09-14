@@ -54,8 +54,40 @@ Template.Categories.events({
     },
 
     "click .delete": function (event) {
-        // Popup a confirmation dialog if there are transactions using this category!
-        Meteor.call("deleteCategory", this._id);
+
+        var category        = event.target.parentNode.parentNode.children[0].innerText;
+        var categoryHTML    = "<h2 class=\"deleteCategory\">"+category+"</h2>";
+        var id              = this._id;
+
+        // Popup dialog (powered by alertify)
+        alertify.confirm(
+
+            // Popup title
+            "Are you sure you want to delete this category?",
+
+            // Popup message
+            categoryHTML,
+
+            // On "YES!" callback
+            function(){
+                Meteor.call("deleteCategory", id, function () {
+                    alertify.message(category+' deleted.');
+                });
+            },
+
+            // On "CANCEL" callback
+            function(){
+            }
+
+        )
+        // Options...
+        .set('reverseButtons', true)
+        .set('transition', 'fade')
+        .set('resizable', true)
+        .set('defaultFocus', 'ok')
+        .set('labels', { ok: 'YES'})
+        .resizeTo("350px", "250px");
+
     }
 
 });

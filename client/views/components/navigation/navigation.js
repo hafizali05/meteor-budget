@@ -8,6 +8,6 @@
 Template.Navigation.helpers({
     entries: [
         { entry: "Transactions", link: "/Transactions" },
-        { entry: "Categories", link: "/categories" }
+        { entry: "Categories", link: "/Categories" }
     ]
 });

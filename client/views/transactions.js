@@ -87,23 +87,23 @@ Template.Transactions.events({
         var tds = event.target.parentNode.parentNode.children;
 
         var tableHTML = "<table class=\"u-full-width transactionsHome transactionsDialog\">"
-        + "<thead>"
-        + "<tr>"
-        + "<th>Description</th>"
-        + "<th>Date</th>"
-        + "<th>Category</th>"
-        + "<th>Amount</th>"
-        + "</tr>"
-        + "</thead>"
-        + "<tbody>"
-        + "<tr>"
-        + tds[0].outerHTML
-        + tds[1].outerHTML
-        + tds[2].outerHTML
-        + tds[3].outerHTML
-        + "</tr>"
-        + "</tbody>"
-        + "</table>";
+            + "<thead>"
+            + "<tr>"
+            + "<th>Description</th>"
+            + "<th>Date</th>"
+            + "<th>Category</th>"
+            + "<th>Amount</th>"
+            + "</tr>"
+            + "</thead>"
+            + "<tbody>"
+            + "<tr>"
+            + tds[0].outerHTML
+            + tds[1].outerHTML
+            + tds[2].outerHTML
+            + tds[3].outerHTML
+            + "</tr>"
+            + "</tbody>"
+            + "</table>";
 
         var id = this._id;
         var type = this.type;
@@ -130,14 +130,13 @@ Template.Transactions.events({
             }
 
         )
-
         // Options...
         .set('reverseButtons', true)
         .set('transition', 'fade')
         .set('resizable', true)
         .set('defaultFocus', 'ok')
         .set('labels', { ok: 'YES'})
-        .resizeTo("75%", "40%");
-    }
+        .resizeTo("600px", "300px");
 
+    }
 });

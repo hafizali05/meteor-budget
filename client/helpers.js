@@ -1,7 +1,13 @@
+/**
+ * Application scope level helpers and stuffs.
+ *
+ * @author Daniele Gazzelloni <daniele@danielegazzelloni.com>
+ */
 
 
 
-//----------------- Template Helpers
+
+//----------------- Global Template Helpers
 
 Template.registerHelper("prettifyDate", function(date) {
 

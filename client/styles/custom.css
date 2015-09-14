@@ -32,6 +32,10 @@ body, html {
     margin-top: 10% !important;
 }
 
+.ajs-content {
+    position: relative;
+    top: 50%;
+}
 
 
 
