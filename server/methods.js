@@ -10,6 +10,7 @@
 
 Meteor.methods({
 
+
     // ------ Collection: Transactions
     addTransaction: function (description, date, category, type, amount) {
 
@@ -21,11 +22,17 @@ Meteor.methods({
         var dateArr         = date.split("-");
         var formattedDate   = new Date(dateArr[0], (parseInt(dateArr[1])-1), dateArr[2]);
 
+        // If we received a string, try to convert it into a number
         if (typeof amount === "string") {
             amount = parseFloat(amount);
         }
 
+        // A last check: if fails, throw an error!
+        if (amount === undefined || amount === null || typeof amount !== "number") {
+            throw new Meteor.Error("invalid amount: "+amount);
+        }
 
+        // Insert transaction into collection
         Transactions.insert({
             description: description,
             date: formattedDate,
@@ -36,6 +43,7 @@ Meteor.methods({
         });
 
     },
+
 
     // ------ Collection: Transactions
     deleteTransaction: function (id, type, amount) {
@@ -55,6 +63,7 @@ Meteor.methods({
 
     },
 
+
     // ------ Collection: Meteor.users
     touchBalance: function (type, amount) {
 
@@ -63,19 +72,30 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        // If we received a string, try to convert it into a number
+        if (typeof amount === "string") {
+            amount = parseFloat(amount);
+        }
+
+        // A last check: if fails, throw an error!
+        if (amount === undefined || amount === null || typeof amount !== "number") {
+            throw new Meteor.Error("invalid amount: "+amount);
+        }
+
         // Get the balance JSON
         var balance = Meteor.users.findOne(this.userId).balance;
 
         if (type === 'Income') {
-            balance.value += parseFloat(amount);
+            balance.value += amount;
         } else {
-            balance.value -= parseFloat(amount);
+            balance.value -= amount;
         }
 
         // Update user balance
         Meteor.users.update( this.userId, { $set: {balance : balance} } );
 
     },
+
 
     // ------ Collection: Categories
     addCategory: function (name) {
@@ -99,6 +119,7 @@ Meteor.methods({
         Categories.insert(cat);
 
     },
+
 
     // ------ Collection: Categories
     deleteCategory: function (id) {
