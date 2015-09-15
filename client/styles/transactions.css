@@ -21,6 +21,14 @@ div.loginAlert {
 /* --------------------- TABLE --------------------- */
 
 
+table.transactionsHome td.income {
+    color: #00FF44;
+}
+
+table.transactionsHome td.outcome {
+    color: #FF0011;
+}
+
 table.transactionsHome th,
 table.transactionsHome td {
     text-align: center;

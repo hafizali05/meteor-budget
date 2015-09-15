@@ -26,26 +26,29 @@ Meteor.subscribe("balance");
 
 Template.Transactions.helpers({
 
+    balance: function () {
+        return Meteor.users.findOne( {_id: Meteor.userId()} ).balance;
+    },
+
     transactions: function () {
         // Show newest transactions at the top
-        return Transactions.find({}, {sort: {date: -1}});
+        return Transactions.find({}, { sort: {date: -1} });
     },
 
     categories: function () {
         // Show categories sorted alphabetically
-        return Categories.find({}, {
-            sort: {
-                name: 1
-            }
-        });
+        return Categories.find({}, { sort: {name: 1} });
     },
 
-    balance: function() {
+    balanceString: function() {
         // Return current balance
-        var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.value.toFixed(2);
-        var currency    = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance.currency;
+        var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance;
 
-        return (balance < 0) ? ("-" + currency + Math.abs(parseFloat(balance)).toFixed(2)) : (currency + balance);
+        if (balance.value < 0) {
+            return "-" + balance.currency + Math.abs(parseFloat(balance.value)).toFixed(2);
+        } else {
+            return balance.currency + balance.value.toFixed(2);
+        }
     }
 
 });

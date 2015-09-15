@@ -50,10 +50,8 @@
             –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
             <div class="balance">
-                <h2>Balance: {{balance}}</h2>
+                <h2>Balance: {{balanceString}}</h2>
             </div>
-
-
 
 
             <!-- Transactions table
@@ -85,10 +83,10 @@
 
 <template name="transaction">
     <tr>
-        <td>{{description}}</td>
+        <td>{{description}} {{balance}}</td>
         <td>{{prettifyDate date}}</td>
         <td>{{category}}</td>
-        <td>{{amount.toFixed 2}}</td>
+        <td class="{{toLowerCase type}}">{{currency}} {{amount.toFixed 2}}</td>
         <td><button class="delete">&times;</button></td>
     </tr>
 </template>

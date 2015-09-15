@@ -38,6 +38,7 @@ Meteor.methods({
             date: formattedDate,
             category: category,
             amount: amount,
+            currency: Meteor.user().balance.currency,
             type: type,
             owner: Meteor.userId()
         });

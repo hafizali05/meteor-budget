@@ -37,3 +37,8 @@ Template.registerHelper("prettifyDate", function(date) {
     return weekday[date.getDay()] + ", " + date.getDate() + " " + month[date.getMonth()] + date.getFullYear();
 
 });
+
+
+Template.registerHelper('toLowerCase', function(str) {
+    return str.toLowerCase();
+});
