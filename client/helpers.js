@@ -42,3 +42,9 @@ Template.registerHelper("prettifyDate", function(date) {
 Template.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
 });
+
+Template.registerHelper('transactionSign', function (type) {
+    return (type === 'Outcome' ? '-' : '');
+});
+
+

@@ -44,7 +44,7 @@ Template.Transactions.helpers({
         // Return current balance
         var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance;
 
-        if (balance.value < 0) {
+        if (balance && balance.value < 0) {
             return "-" + balance.currency + Math.abs(parseFloat(balance.value)).toFixed(2);
         } else {
             return balance.currency + balance.value.toFixed(2);

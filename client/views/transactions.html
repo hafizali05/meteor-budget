@@ -86,7 +86,7 @@
         <td>{{description}} {{balance}}</td>
         <td>{{prettifyDate date}}</td>
         <td>{{category}}</td>
-        <td class="{{toLowerCase type}}">{{currency}} {{amount.toFixed 2}}</td>
+        <td class="{{toLowerCase type}}">{{transactionSign type}}{{currency}}{{amount.toFixed 2}}</td>
         <td><button class="delete">&times;</button></td>
     </tr>
 </template>

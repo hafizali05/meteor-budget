@@ -22,11 +22,11 @@ div.loginAlert {
 
 
 table.transactionsHome td.income {
-    color: #00FF44;
+    color: #00da00;
 }
 
 table.transactionsHome td.outcome {
-    color: #FF0011;
+    /*color: #dd0000;*/
 }
 
 table.transactionsHome th,
