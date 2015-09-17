@@ -29,6 +29,10 @@
     padding: 0.8em 1.2em;
 }
 
+.login-close-text {
+    display: none;
+}
+
 .login-button {
     color: #0FA0CE;
     cursor: pointer;

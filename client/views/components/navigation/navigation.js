@@ -5,9 +5,55 @@
  */
 
 
+
+//----------------- Helpers
+
 Template.Navigation.helpers({
     entries: [
         { entry: "Transactions", link: "/Transactions" },
         { entry: "Categories", link: "/Categories" }
     ]
+});
+
+
+
+
+
+//----------------- Events
+
+Template.Navigation.events({
+
+    // Mouse click "login-buttons" div.
+    // ACTIONS: Open / Close login dropdown div.
+    "click .login-link-text": function (event) {
+
+        if (isLoginDropdownOpened) {
+            $('.login-close-text').click();
+        }
+
+        isLoginDropdownOpened = !isLoginDropdownOpened;
+
+    },
+
+    // Mouse leave entire "login-buttons" div.
+    // ACTIONS: Start a timeout and fade out that div.
+    "mouseleave #login-buttons": function (event) {
+
+        //Template._loginButtons.toggleDropdown();
+        if (isLoginDropdownOpened) {
+            loginButtonIntervalID = setTimeout("$('.login-close-text').click(); isLoginDropdownOpened=false", 1000);
+        }
+
+    },
+
+    // Mouse enter the entire "login-buttons" div.
+    // ACTIONS: User is thinking about what to click, do not allow DIV closure!
+    "mouseover #login-buttons": function (event) {
+
+        if (isLoginDropdownOpened) {
+            clearTimeout(loginButtonIntervalID);
+        }
+
+    },
+
 });
