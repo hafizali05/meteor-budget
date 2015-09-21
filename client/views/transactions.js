@@ -24,32 +24,87 @@ Meteor.subscribe("balance");
 
 //----------------- Helpers
 
+
 Template.Transactions.helpers({
 
+
     balance: function () {
+
         return Meteor.users.findOne( {_id: Meteor.userId()} ).balance;
+
     },
 
-    transactions: function () {
-        // Show newest transactions at the top
-        return Transactions.find({}, { sort: {date: -1} });
-    },
 
-    categories: function () {
-        // Show categories sorted alphabetically
-        return Categories.find({}, { sort: {name: 1} });
-    },
-
+    // Return current balance
     balanceString: function() {
-        // Return current balance
+
         var balance     = Meteor.users.findOne( {_id: Meteor.user()._id} ).balance;
 
-        if (balance && balance.value < 0) {
+        if (balance === undefined) {
+            return 0.0;
+        } else if (balance.value < 0) {
             return "-" + balance.currency + Math.abs(parseFloat(balance.value)).toFixed(2);
         } else {
             return balance.currency + balance.value.toFixed(2);
         }
+
+    },
+
+
+    // Show categories sorted alphabetically
+    categories: function () {
+
+        return Categories.find({}, { sort: {name: 1} });
+
+    },
+
+
+    // Show newest transactions at the top
+    transactions: function () {
+
+        return Transactions.find({}, { sort: {date: -1} });
+
+    },
+
+    // Returns a list of transactions grouped by date.
+    // Dates include year, month and day. Hours, minutes and seconds avoided.
+    transactionsByDate: function () {
+        var transactions    = Transactions.find({}, { sort: {date: -1} }).fetch();
+        var groupedDates    = _.groupBy(transactions, function (item) {
+            return item.date.toString().substring(0, 10);
+        });
+
+        var groupedByDates = [];
+
+        _.each(_.values(groupedDates), function(elements) {
+
+            // thisDate is like this:
+            // {
+            //   date: "Tue 2015 17",
+            //   elements: [array]
+            // }
+            //
+            // elements is like this:
+            // [
+            //   { date: ..., type: ..., category: ... etc...},
+            //   { date: ..., type: ..., category: ... etc...},
+            //   .....
+            // ]
+            // Every element shares the same date.
+
+            var thisDate = [];
+            for (var i=0; i<elements.length; i++) {
+                thisDate.push(elements[i]);
+            }
+            groupedByDates.push({
+                date: thisDate[0].date,
+                elements: thisDate
+            });
+        });
+
+        return groupedByDates;
     }
+
 
 });
 

@@ -11,7 +11,9 @@
 Template.Navigation.helpers({
     entries: [
         { entry: "Transactions", link: "/Transactions" },
-        { entry: "Categories", link: "/Categories" }
+        { entry: "Categories", link: "/Categories" },
+        { entry: "Analysis", link: "/Analysis" },
+        { entry: "Settings", link: "/Settings" }
     ]
 });
 
@@ -23,9 +25,13 @@ Template.Navigation.helpers({
 
 Template.Navigation.events({
 
+
     // Mouse click "login-buttons" div.
     // ACTIONS: Open / Close login dropdown div.
     "click .login-link-text": function (event) {
+
+        // Prevent "click html" to be executed.
+        event.stopPropagation();
 
         if (isLoginDropdownOpened) {
             $('.login-close-text').click();
@@ -41,7 +47,7 @@ Template.Navigation.events({
 
         //Template._loginButtons.toggleDropdown();
         if (isLoginDropdownOpened) {
-            loginButtonIntervalID = setTimeout("$('.login-close-text').click(); isLoginDropdownOpened=false", 1000);
+            loginButtonIntervalID = setTimeout("$('.login-close-text').click(); isLoginDropdownOpened=false", 400);
         }
 
     },

@@ -57,7 +57,7 @@
             <!-- Transactions table
             –––––––––––––––––––––––––––––––––––––––––––––––––– -->
             <table class="u-full-width transactionsHome">
-                <thead>
+                <!--<thead>
                     <tr>
                         <th>Description</th>
                         <th>Date</th>
@@ -65,10 +65,10 @@
                         <th>Amount</th>
                         <th>&nbsp;</th>
                     </tr>
-                </thead>
+                </thead>-->
                 <tbody>
 
-                    {{#each transactions}}
+                    {{#each transactionsByDate}}
                         {{> transaction}}
                     {{/each}}
 
@@ -82,13 +82,21 @@
 
 
 <template name="transaction">
-    <tr>
-        <td>{{description}} {{balance}}</td>
-        <td>{{prettifyDate date}}</td>
-        <td>{{category}}</td>
-        <td class="{{toLowerCase type}}">{{transactionSign type}}{{currency}}{{amount.toFixed 2}}</td>
-        <td><button class="delete">&times;</button></td>
+
+    <tr class="dateRow">
+        <td colspan="5">{{prettifyDate date}}</td>
     </tr>
+
+    {{#each elements}}
+        <tr class="transactionRow">
+            <td>{{description}} {{balance}}</td>
+            <!--<td>{{prettifyDate date}}</td>-->
+            <td>{{category}}</td>
+            <td class="{{toLowerCase type}}">{{transactionSign type}}{{currency}}{{amount.toFixed 2}}</td>
+            <td><button class="delete">&times;</button></td>
+        </tr>
+    {{/each}}
+
 </template>
 
 

@@ -21,6 +21,15 @@ div.loginAlert {
 /* --------------------- TABLE --------------------- */
 
 
+table.transactionsHome tr.dateRow td {
+    text-align: left;
+    font-face: "helvetica neue";
+    font-weight: bolder;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-top: 2.5em;
+}
+
 table.transactionsHome td.income {
     color: #00da00;
 }

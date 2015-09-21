@@ -46,5 +46,3 @@ Template.registerHelper('toLowerCase', function(str) {
 Template.registerHelper('transactionSign', function (type) {
     return (type === 'Outcome' ? '-' : '');
 });
-
-
