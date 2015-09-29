@@ -9,3 +9,5 @@ iron:router
 accounts-ui-unstyled
 accounts-password
 ovcharik:alertifyjs
+velocity:html-reporter
+sanjo:jasmine
