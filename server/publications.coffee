@@ -27,9 +27,7 @@ Meteor.publish "categories", () ->
 Meteor.publish "balance", () ->
 
   if this.userId
-      Meteor.users.find({
-        _id: this.userId}, {fields: {'startingBalance': 1, 'balance': 1}
-      })
+      Meteor.users.find({_id: this.userId}, {fields: {'startingBalance': 1, 'balance': 1}})
   else
     this.ready()
 

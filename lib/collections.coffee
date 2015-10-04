@@ -6,6 +6,6 @@
  #######################################################################
 
 
-Transactions    = new Mongo.Collection("transactions")
-Categories      = new Mongo.Collection("categories")
-Balance         = new Mongo.Collection("balance")
+@Transactions    = new Mongo.Collection("transactions")
+@Categories      = new Mongo.Collection("categories")
+@Balance         = new Mongo.Collection("balance")
